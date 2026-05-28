@@ -4,24 +4,26 @@
     padding: 0;
     box-sizing: border-box;
 }
-.samuel{
+.samuelbassanidealmeidabarzotto{
     color: whitesmoke;
 }
-.body1 {
-    background: #fff8e8;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+
+header {
+    background: #d8993a;
+    text-align: center;
+    padding: clamp(15px, 4vw, 25px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     width: 100%;
-    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .sair {
-    position: fixed;
+    position: absolute;
     top: 10px;
     left: 10px;
-    z-index: 1000;
     width: 40px;
     height: 40px;
     background: rgba(255,255,255,0);
@@ -32,6 +34,17 @@
     transition: all 0.3s ease;
     cursor: pointer;
 }
+
+.body1 {
+    background: #fff8e8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 
 .sair:hover { transform: scale(1.1); }
 
@@ -62,9 +75,9 @@ header a {
 
 .card {
     background: rgb(212,212,212);
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    transition: box-shadow 0.2s ease;
+    border-radius: 8px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.5s ease;
     user-select: none;
     display: flex;
     flex-direction: column;
@@ -73,17 +86,21 @@ header a {
 }
 
 .card:hover {
-    box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+    box-shadow: 0 30px 25px rgba(0,0,0,0.18);
+     transform: scale(1.010); 
+     transition: 0.3s;
+
 }
 
 .card.pinned .card-header {
     cursor: default;
+    color: rgb(102, 102, 102);
 }
 
 .card-header {
     padding: 10px 12px;
-    background: #ffbd59;
-    border-radius: 12px 12px 0 0;
+    background: #ffb547;
+    border-radius: 8px 8px 0 0;
     cursor: grab;
     user-select: none;
     text-align: center;
@@ -122,7 +139,7 @@ header a {
 
 .card-content h2 {
     margin-bottom: 10px;
-    color: #d8993a;
+    color: #ffb547;
     font-size: clamp(1.1rem, 3vw, 1.4rem);
 }
 
@@ -143,6 +160,7 @@ header a {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
+    color: #ffb547;
 }
 
 .taskInput input {
@@ -157,7 +175,7 @@ header a {
 .taskInput button {
     padding: 8px 12px;
     border: none;
-    background: #d8993a;
+    background: gray;
     border-radius: 6px;
     cursor: pointer;
     font-size: clamp(0.8rem, 2vw, 0.95rem);
@@ -185,7 +203,7 @@ canvas {
 .boardButtons button {
     padding: 8px 15px;
     border: none;
-    background: #d8993a;
+    background: #ffb547;
     border-radius: 6px;
     cursor: pointer;
     font-size: clamp(0.8rem, 2vw, 0.95rem);
@@ -197,7 +215,7 @@ canvas {
     background: #f0f0f0;
     border-radius: 0 0 12px 12px;
     text-align: right;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #ffb547;
     flex-shrink: 0;
 }
 
