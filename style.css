@@ -253,6 +253,150 @@ footer {
         height: 160px;
     }
 }
+#btnPerfil {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    cursor: pointer;
+}
+
+#btnPerfil img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+#btnPerfil img:hover {
+    transform: scale(1.1);
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+}
+
+#painelPerfil {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: #1a1a2e;
+    z-index: 2000;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+#fecharPainel {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.painel-foto-wrap {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.painel-foto-container {
+    position: relative;
+    display: inline-block;
+}
+
+#fotoPerfilGrande {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #ffb547;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.painel-foto-edit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #ffb547;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#inputFoto {
+    display: none;
+}
+
+#nomeUsuario {
+    color: white;
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    font-family: 'Oswald', sans-serif;
+}
+
+.painel-nivel {
+    color: #ffb547;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.painel-pontos {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.painel-pontos-label {
+    color: #aaa;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+}
+
+#pontosUsuario {
+    color: #ffb547;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif;
+}
+
+.btn-logout {
+    width: 100%;
+    padding: 0.8rem;
+    background: #e74c3c;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 1rem;
+    transition: background 0.2s;
+}
+
+.btn-logout:hover {
+    background: #c0392b;
+}
 
 .body2 {
     background: linear-gradient(135deg, #0b2b26 0%, #163a2f 100%);
