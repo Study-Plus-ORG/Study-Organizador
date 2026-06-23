@@ -4,8 +4,19 @@
     padding: 0;
     box-sizing: border-box;
 }
-.samuelbassanidealmeidabarzotto{
+
+.samuelbassanidealmeidabarzotto {
     color: whitesmoke;
+}
+
+.body1 {
+    background: #fff8e8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 header {
@@ -26,41 +37,14 @@ header {
     left: 10px;
     width: 40px;
     height: 40px;
-    background: rgba(255,255,255,0);
+    background: transparent;
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
     cursor: pointer;
 }
 
-.body1 {
-    background: #fff8e8;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: 100%;
-    overflow-x: hidden;
-}
-
-
-.sair:hover { transform: scale(1.1); }
-
-header {
-    background: #d8993a;
-    text-align: center;
-    padding: clamp(15px, 4vw, 25px);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-    width: 100%;
-    position: relative;
-}
-
-header a {
-    position: absolute;
-    top: 0;
-    left: 0;
+.sair:hover {
+    transform: scale(1.1);
 }
 
 .container {
@@ -76,7 +60,7 @@ header a {
 .card {
     background: rgb(212,212,212);
     border-radius: 8px;
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 15px 20px rgba(0,0,0,0.12);
     transition: box-shadow 0.5s ease;
     user-select: none;
     display: flex;
@@ -87,14 +71,13 @@ header a {
 
 .card:hover {
     box-shadow: 0 30px 25px rgba(0,0,0,0.18);
-     transform: scale(1.010); 
-     transition: 0.3s;
-
+    transform: scale(1.010);
+    transition: 0.3s;
 }
 
 .card.pinned .card-header {
     cursor: default;
-    color: rgb(102, 102, 102);
+    color: rgb(102,102,102);
 }
 
 .card-header {
@@ -107,7 +90,9 @@ header a {
     flex-shrink: 0;
 }
 
-.card-header:active { cursor: grabbing; }
+.card-header:active {
+    cursor: grabbing;
+}
 
 .drag-lines {
     display: flex;
@@ -154,13 +139,14 @@ header a {
     font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
-.card li:hover { background: #20117757; }
+.card li:hover {
+    background: #20117757;
+}
 
 .taskInput {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
-    color: #ffb547;
 }
 
 .taskInput input {
@@ -229,7 +215,9 @@ canvas {
     line-height: 1;
 }
 
-.pin-btn:hover { transform: scale(1.1); }
+.pin-btn:hover {
+    transform: scale(1.1);
+}
 
 footer {
     text-align: center;
@@ -238,21 +226,6 @@ footer {
     font-size: clamp(0.8rem, 2vw, 0.95rem);
 }
 
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-        grid-auto-rows: auto;
-        padding: 70px 15px 20px 15px;
-        gap: 15px;
-    }
-    .card {
-        height: auto;
-        min-height: 280px;
-    }
-    canvas {
-        height: 160px;
-    }
-}
 #btnPerfil {
     position: fixed;
     top: 10px;
@@ -281,7 +254,7 @@ footer {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
     z-index: 1999;
 }
 
@@ -294,7 +267,7 @@ footer {
     height: 100vh;
     background: #1a1a2e;
     z-index: 2000;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: -4px 0 20px rgba(0,0,0,0.3);
     padding: 2rem;
     overflow-y: auto;
 }
@@ -361,7 +334,7 @@ footer {
 }
 
 .painel-pontos {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255,255,255,0.05);
     border-radius: 12px;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -503,30 +476,13 @@ footer {
     transition: transform 0.25s ease;
 }
 
-.cadastro-container:hover { transform: scale(1.01); }
+.cadastro-container:hover {
+    transform: scale(1.01);
+}
 
 .cadastro-card {
     padding: 2rem 2rem 1.5rem 2rem;
     color: #fff3e0;
-}
-
-.cadastro-logo {
-    font-size: 3.5rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #ffbd59, #ff9f2e);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    text-align: center;
-}
-
-.cadastro-logo span {
-    background: none;
-    color: #ffbd59;
-    -webkit-background-clip: unset;
-    background-clip: unset;
 }
 
 .cadastro-tagline {
@@ -591,9 +547,6 @@ footer {
     background: #ffa82e;
     transform: translateY(0px);
     box-shadow: 0 1px 0 #b1620e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .login-link {
@@ -609,7 +562,9 @@ footer {
     font-weight: 500;
 }
 
-.login-link a:hover { text-decoration: underline; }
+.login-link a:hover {
+    text-decoration: underline;
+}
 
 .cadastro-footer {
     padding: 1rem;
@@ -619,12 +574,52 @@ footer {
     color: #ddcfa0;
 }
 
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        padding: 70px 15px 20px 15px;
+        gap: 15px;
+    }
+    .card {
+        height: auto;
+        min-height: 280px;
+    }
+    canvas {
+        height: 160px;
+    }
+}
+
 @media (max-width: 550px) {
-    .cadastro-logo { font-size: 2.5rem; }
-    .cadastro-card { padding: 1.5rem; }
-    .btn-cadastrar { font-size: 1rem; padding: 0.7rem; }
     .landing-logo { font-size: 2.8rem; }
     .landing-tagline { font-size: 1.2rem; }
     .landing-card { padding: 1.8rem 1.2rem; }
     .btn-entrar { padding: 0.7rem 1.5rem; font-size: 1rem; }
+    .cadastro-card { padding: 1.5rem; }
+    .btn-cadastrar { font-size: 1rem; padding: 0.7rem; }
+}
+
+.senha-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.senha-container input {
+    width: 100%;
+    padding-right: 45px;
+}
+
+.olho {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.1rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.olho:hover {
+    opacity: 1;
 }

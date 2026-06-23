@@ -24,11 +24,18 @@
                 </div>
                 <div class="input-group">
                     <label for="senha">Senha</label>
+                    <div class="senha-container">
                     <input type="password" id="senha" placeholder="••••••" required>
+                    <span class="olho" onclick="toggleSenha('senha', this)">👁️</span>
+                    </div>
                 </div>
+
                 <div class="input-group">
                     <label for="confirmar">Confirmar senha</label>
+                    <div class="senha-container">
                     <input type="password" id="confirmar" placeholder="••••••" required>
+                    <span class="olho" onclick="toggleSenha('confirmar', this)">👁️</span>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn-cadastrar">Cadastrar →</button>
@@ -84,5 +91,18 @@
             }
         });
     </script>
+    <script>
+function toggleSenha(id, elemento) {
+    const campo = document.getElementById(id);
+
+    if (campo.type === 'password') {
+        campo.type = 'text';
+        elemento.textContent = '🙈';
+    } else {
+        campo.type = 'password';
+        elemento.textContent = '👁️';
+    }
+}
+</script>
 </body>
 </html>
