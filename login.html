@@ -42,26 +42,48 @@
   </div>
 
   <script type="module">
-    import { auth } from './firebase.js';
-    import { signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+import { auth, db } from './firebase.js';
+import {
+  signInWithEmailAndPassword,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
-    onAuthStateChanged(auth, (user) => {
-      if (user) window.location.href = 'principal.html';
-    });
+import {
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
-    document.getElementById('formLogin').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      const senha = document.getElementById('senha').value;
+async function verificarAdmin(user) {
+  const adminRef = doc(db, "admins", user.uid);
+  const adminSnap = await getDoc(adminRef);
 
-      try {
-        await signInWithEmailAndPassword(auth, email, senha);
-        window.location.href = 'principal.html';
-      } catch (erro) {
-        alert('E-mail ou senha incorretos.');
-      }
-    });
-  </script>
+  if (adminSnap.exists()) {
+    window.location.href = "admin.html";
+  } else {
+    window.location.href = "principal.html";
+  }
+}
+
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    await verificarAdmin(user);
+  }
+});
+
+document.getElementById('formLogin').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById('email').value;
+  const senha = document.getElementById('senha').value;
+
+  try {
+    const credencial = await signInWithEmailAndPassword(auth, email, senha);
+    await verificarAdmin(credencial.user);
+  } catch (erro) {
+    alert('E-mail ou senha incorretos.');
+  }
+});
+</script>
   <script>
     function toggleSenha(id, elemento) {
     const campo = document.getElementById(id);
