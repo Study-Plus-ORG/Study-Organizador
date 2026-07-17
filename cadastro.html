@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 </head>
+
 <body class="cadastro-body">
     <div class="cadastro-container">
         <div class="cadastro-card">
@@ -25,16 +27,16 @@
                 <div class="input-group">
                     <label for="senha">Senha</label>
                     <div class="senha-container">
-                    <input type="password" id="senha" placeholder="••••••" required>
-                    <span class="olho" onclick="toggleSenha('senha', this)">👁️</span>
+                        <input type="password" id="senha" placeholder="••••••" required>
+                        <span class="olho" onclick="toggleSenha('senha', this)">👁️</span>
                     </div>
                 </div>
 
                 <div class="input-group">
                     <label for="confirmar">Confirmar senha</label>
                     <div class="senha-container">
-                    <input type="password" id="confirmar" placeholder="••••••" required>
-                    <span class="olho" onclick="toggleSenha('confirmar', this)">👁️</span>
+                        <input type="password" id="confirmar" placeholder="••••••" required>
+                        <span class="olho" onclick="toggleSenha('confirmar', this)">👁️</span>
                     </div>
                 </div>
 
@@ -49,6 +51,10 @@
     </div>
 
     <script type="module">
+        console.log("CADASTRO JS CARREGADO");
+    </script>
+
+    <script type="module">
         import { auth, db } from './firebase.js';
         import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
         import { doc, setDoc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
@@ -59,6 +65,7 @@
 
         document.getElementById('formCadastro').addEventListener('submit', async (e) => {
             e.preventDefault();
+
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;
@@ -71,38 +78,44 @@
 
             try {
                 const cred = await createUserWithEmailAndPassword(auth, email, senha);
-                await updateProfile(cred.user, { displayName: nome });
-                await setDoc(doc(db, 'usuarios', cred.user.uid), {
+
+                await updateProfile(cred.user, {
+                    displayName: nome
+                });
+
+                await setDoc(doc(db, "usuarios", cred.user.uid), {
                     nome,
                     email,
                     pontos: 0,
                     nivel: 1,
                     criadoEm: new Date()
                 });
-                window.location.href = 'principal.html';
+
+                window.location.href = "principal.html";
+
             } catch (erro) {
-                if (erro.code === 'auth/email-already-in-use') {
-                    alert('Este e-mail já está cadastrado.');
-                } else if (erro.code === 'auth/weak-password') {
-                    alert('A senha deve ter pelo menos 6 caracteres.');
-                } else {
-                    alert('Erro ao cadastrar. Tente novamente.');
-                }
+
+                console.error(erro);
+
+                alert(
+                    erro.code + "\n\n" + erro.message
+                );
             }
         });
     </script>
     <script>
-function toggleSenha(id, elemento) {
-    const campo = document.getElementById(id);
+        function toggleSenha(id, elemento) {
+            const campo = document.getElementById(id);
 
-    if (campo.type === 'password') {
-        campo.type = 'text';
-        elemento.textContent = '🙈';
-    } else {
-        campo.type = 'password';
-        elemento.textContent = '👁️';
-    }
-}
-</script>
+            if (campo.type === 'password') {
+                campo.type = 'text';
+                elemento.textContent = '🙈';
+            } else {
+                campo.type = 'password';
+                elemento.textContent = '👁️';
+            }
+        }
+    </script>
 </body>
+
 </html>
