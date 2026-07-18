@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Study+ | Criar conta</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght=200..700&display=swap" rel="stylesheet">
 </head>
 
 <body class="cadastro-body">
@@ -94,12 +94,8 @@
                 window.location.href = "principal.html";
 
             } catch (erro) {
-
                 console.error(erro);
-
-                alert(
-                    erro.code + "\n\n" + erro.message
-                );
+                alert(erro.code + "\n\n" + erro.message);
             }
         });
     </script>
